@@ -1,0 +1,64 @@
+# Portfolio Tracker configuration — copy this file to config.yaml and edit it.
+#   cp config.example.yaml config.yaml
+# config.yaml is gitignored: it's meant to hold YOUR setup, never committed.
+
+# ISO currency code for the "local currency" conversion shown next to USD figures.
+# Common examples: CLP, MXN, EUR, GBP, BRL, ARS, COP, JPY, AUD, NZD.
+# Set to "USD" (or leave blank) to disable the secondary currency entirely.
+local_currency: USD
+
+# Your brokers. Keys are display names — use whatever you call them.
+# commission_model:
+#   "per_trade"  — a per-order commission rate, with N free trades/month
+#   "aum_annual" — an annual fee (%) charged on assets under management
+#   "none"       — no commission tracking, just position math
+# You can have zero brokers (an empty { } below still works) or add more.
+brokers:
+  Example Brokerage:
+    commission_model: per_trade
+    commission_rate_pct: 0.1
+    free_trades_per_month: 10
+    commission_note: "0.1% per order after the first 10 free trades/month."
+  Example Robo-Advisor:
+    commission_model: aum_annual
+    commission_rate_pct: 1.0
+    commission_note: "1% annual fee on assets under management, billed monthly."
+
+# Cash sitting uncommitted in each broker (USD). Optional — omit a broker to
+# skip showing an idle-cash card for it.
+cash_balances:
+  Example Brokerage:
+    usd: 0.0
+    as_of: "2026-01-01"
+
+# Display names for tickers (optional — falls back to the ticker itself).
+ticker_names:
+  AAPL: Apple Inc.
+  VOO: Vanguard S&P 500 ETF
+
+# Tickers you don't own yet but want to keep an eye on. Each entry can list
+# "related" tickers from your own holdings for context in the UI.
+watchlist:
+  - ticker: NVDA
+    name: NVIDIA
+    reason: "Example: a name correlated with your semiconductor holdings."
+    related: ["SMH"]
+
+# Curated list of investors whose public 13F filings you want surfaced
+# ("Lo que hacen los grandes" / "What the big money is doing" section).
+# CIK = SEC's Central Index Key for that fund; free to look up at sec.gov.
+famous_investors:
+  - name: Warren Buffett
+    fund: Berkshire Hathaway
+    cik: "0001067983"
+    style: "Value, long-term"
+  - name: Cathie Wood
+    fund: ARK Invest
+    cik: "0001697748"
+    style: "Disruptive growth / tech"
+
+# Optional per-ticker adjustments for realized gains/dividends collected
+# before you started tracking with this tool (e.g. from a previous broker
+# statement). Safe to leave empty — positions.json already tracks these
+# fields per-position going forward.
+position_extras: {}

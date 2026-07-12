@@ -1,0 +1,12 @@
+# Real personal setup — never commit these
+config.yaml
+data/positions.json
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# OS
+.DS_Store
