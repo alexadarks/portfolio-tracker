@@ -91,6 +91,40 @@ lightweight price-cache warm-up. **Neither is required.** The dashboard is
 100% functional without Claude Code, without any LLM, and without internet
 access to anything other than Yahoo Finance and SEC EDGAR.
 
+### Setup prompt
+
+If you have [Claude Code](https://claude.com/claude-code) installed, the
+easiest way to turn this on is to paste the prompt below into a Claude Code
+session opened at the root of your clone. It reads the template, fills in
+your real path, wires the small amount of glue code the template
+deliberately leaves out (an `/api/expert-analysis` endpoint + a dashboard
+card), and schedules the daily run — adjust the cron time/timezone to taste.
+
+```
+I want to enable the optional "expert daily read" feature described in
+claude-integration/portfolio-daily-suggestion/SKILL.md in this repo
+(portfolio-tracker). Please:
+
+1. Read that SKILL.md and claude-integration/portfolio-price-refresh/SKILL.md.
+2. Replace every <YOUR_PROJECT_PATH> placeholder with the absolute path to
+   this repo on my machine.
+3. Add a small /api/expert-analysis endpoint to app.py that reads
+   data/expert_analysis.json (tolerating a missing/corrupt file) and a
+   matching card in templates/body.html to display market_view + the
+   per-ticker action/conviction/reasoning, styled consistently with the
+   rest of the dashboard.
+4. Set up a recurring scheduled task (ask me what time/timezone and how
+   often — I'd like once a day before market open, plus optionally a
+   lightweight price-only refresh at midday) that runs the daily-suggestion
+   routine and writes data/expert_analysis.json using an atomic write
+   (write to .tmp, then rename).
+5. Never place real buy/sell orders or fabricate data — this feature is
+   informational only, exactly as the SKILL.md says.
+
+Ask me before scheduling anything, and show me the diff before writing to
+app.py or templates/body.html.
+```
+
 ## What this does NOT do
 
 - No real brokerage integration (no OAuth/API to Schwab, Fidelity, Fintual,
