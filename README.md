@@ -139,4 +139,12 @@ app.py or templates/body.html.
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+[PolyForm Noncommercial 1.0.0](https://polyformproject.org/licenses/noncommercial/1.0.0)
+— see [LICENSE](LICENSE).
+
+In short: free to use, study, modify, and self-host for personal,
+educational, or otherwise noncommercial purposes. **Commercial use
+(selling it, running it as a paid product/SaaS, or any monetized
+offering built on this code) is not permitted under this license** —
+reach out to the copyright holder if you want to discuss commercial
+terms.
