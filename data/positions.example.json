@@ -2,7 +2,7 @@
   {
     "ticker": "VOO",
     "name": "Vanguard S&P 500 ETF",
-    "broker": "Example Broker A",
+    "broker": "Example Brokerage",
     "quantity": 2.5,
     "cost_price": 480.0,
     "entry_date": "2026-01-15",
@@ -12,7 +12,7 @@
   {
     "ticker": "MU",
     "name": "Micron Technology",
-    "broker": "Example Broker A",
+    "broker": "Example Brokerage",
     "quantity": 4,
     "cost_price": 95.5,
     "entry_date": "2026-02-01",
@@ -22,7 +22,7 @@
   {
     "ticker": "JPM",
     "name": "JPMorgan Chase & Co.",
-    "broker": "Example Broker B",
+    "broker": "Example Robo-Advisor",
     "quantity": 1.2,
     "cost_price": 210.0,
     "entry_date": "2026-03-10",
